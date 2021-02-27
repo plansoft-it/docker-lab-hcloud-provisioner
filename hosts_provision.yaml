@@ -1,0 +1,17 @@
+---
+- hosts: main_host
+  vars_files:
+    - vars/secrets.yaml
+    - vars/terraform.yaml
+  tasks:
+  - name: Deploy hosts
+    community.general.terraform:
+      project_path: './terraform/hcloud'
+      state: "{{ state }}"
+      force_init: true
+      variables:
+        api_key: "{{ api_key }}"
+        image: "{{ image }}"
+        server_type: "{{ server_type }}"
+        ssh_key: "{{ ssh_key }}"
+        number_of_nodes: "{{ number_of_nodes }}"

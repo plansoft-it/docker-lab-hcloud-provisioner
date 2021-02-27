@@ -1,0 +1,27 @@
+- apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - apt-transport-https
+    - ca-certificates
+    - curl
+    - gnupg-agent
+    - software-properties-common
+- apt_key:
+    url: "https://download.docker.com/linux/ubuntu/gpg"
+    state: present
+- apt_repository:
+    repo: 'deb [arch=amd64] https://download.docker.com/linux/ubuntu focal stable'
+    state: present
+- apt:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - docker-ce
+    - docker-ce-cli
+    - containerd.io
+- service:
+    name: docker
+    state: started
+    enabled: true
+

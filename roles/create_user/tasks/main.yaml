@@ -1,0 +1,7 @@
+- name: Add the user 'corso'
+  ansible.builtin.user:
+    name: corso
+    shell: /bin/bash
+    groups: docker
+    append: yes
+    password: "{{ user_password }}"

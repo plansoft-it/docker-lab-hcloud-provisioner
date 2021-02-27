@@ -1,0 +1,4 @@
+image: ubuntu-20.04
+server_type: cx11
+ssh_key: "marco.sarti@plansoft.it"
+number_of_nodes: 2

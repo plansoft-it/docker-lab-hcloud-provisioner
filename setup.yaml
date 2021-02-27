@@ -1,0 +1,8 @@
+- hosts: 'lab_hosts'
+  vars_files:
+    - vars/secrets.yaml
+  user: root
+  roles:
+  - docker
+  - create_user
+
