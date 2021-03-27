@@ -19,10 +19,10 @@ provider "hcloud" {
   token = var.api_key
 }
 
-#resource "hcloud_ssh_key" "default" {
-#  name = "Terraform key"
-#  public_key = file("~/.ssh/id_rsa.pub")
-#}
+resource "hcloud_ssh_key" "default" {
+  name = var.ssh_key
+  public_key = file("~/.ssh/id_rsa.pub")
+}
 
 resource "hcloud_server" "node" {
   count = var.number_of_nodes
